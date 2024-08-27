@@ -14,22 +14,39 @@ class CounterView extends GetView<CounterController> {
         centerTitle: true,
       ),
       body: Center(
-      child: Column(
+          child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Bilangan ke'),
           Obx(
-          () => Text(controller.bilangan.toString()),
+            () => Text(controller.bilangan.toString()),
           ),
           SizedBox(
             height: 10,
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
             ElevatedButton(
               onPressed: () {
                 controller.tambahSatu();
               },
               child: Icon(Icons.add),
-            )
+            ),
+            ElevatedButton(
+              onPressed: () {
+                controller.reset();
+              },
+              child: Icon(Icons.restore_outlined),
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  controller.kurangSatu();
+                },
+                child: Icon(Icons.remove),
+              ),
+            ],
+          ),
         ],
       )),
     );

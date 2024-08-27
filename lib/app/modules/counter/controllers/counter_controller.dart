@@ -16,4 +16,19 @@ class CounterController extends GetxController {
       bilangan.value++;
     }
   }
+  void kurangSatu() {
+    if (bilangan.value <= 0) {
+      Get.snackbar(
+        'Error',
+        'Ulah Minus',
+        backgroundColor: const Color.fromARGB(255, 240, 0, 0),
+        icon: Icon(Icons.warning),
+      );
+    } else {
+      bilangan.value--;
+    }
+  }
+  void reset() {
+      bilangan.value = 0;
+  }
 }
